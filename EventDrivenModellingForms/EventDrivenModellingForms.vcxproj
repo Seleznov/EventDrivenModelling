@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D89ABDF8-208B-4556-BC49-9BE593E4387D}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>EventDrivenModellingForms</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <CLRSupport>Pure</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="ActorsContainer.cpp" />
+    <ClCompile Include="ActorsGenerator.cpp" />
+    <ClCompile Include="BordersContainer.cpp" />
+    <ClCompile Include="CellsContainer.cpp" />
+    <ClCompile Include="EdgesContainer.cpp" />
+    <ClCompile Include="Events.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Point2F.cpp" />
+    <ClCompile Include="PriorityQueue.cpp" />
+    <ClCompile Include="ProcessTimer.cpp" />
+    <ClCompile Include="Properties.cpp" />
+    <ClCompile Include="TriangEdge.cpp" />
+    <ClCompile Include="NetEventHandler.cpp" />
+    <ClCompile Include="NetEventController.cpp" />
+    <ClCompile Include="TriangEventController.cpp" />
+    <ClCompile Include="TriangEventHandler.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TriangNodesGenerator.cpp" />
+    <ClCompile Include="TriangNodesContainer.cpp" />
+    <ClCompile Include="TriangNode.cpp" />
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="EventDrivenModellingForms.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Triangulation.cpp" />
+    <ClCompile Include="Triangulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Actor.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsContainer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsGenerator.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Border.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\BordersContainer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Cell.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\CellsContainer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\TriangEventHandler.h" />
+    <ClInclude Include="TriangEventController.h" />
+    <ClInclude Include="EdgeIndexer.h" />
+    <ClInclude Include="Triangulator.h" />
+    <ClInclude Include="TriangEdge.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EdgesContainer.h" />
+    <ClInclude Include="NetEventHandler.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EDM_Math.h" />
+    <ClInclude Include="NetEventController.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Events.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\FloatGenerator.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\GLDrawer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Global.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Node.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\OpenGLPanelExtention.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Point2F.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PointsGenerator.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PriorityQueue.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ProcessTimer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Properties.h" />
+    <ClInclude Include="EDM_Rect.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\RefSingleton.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Singleton.h" />
+    <ClInclude Include="TriangNodesContainer.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangle.h" />
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangulation.h" />
+    <ClInclude Include="TriangNodesGenerator.h" />
+    <ClInclude Include="TriangNode.h" />
+    <ClInclude Include="Form1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

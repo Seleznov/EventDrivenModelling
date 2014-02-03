@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Файлы исходного кода">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Заголовочные файлы">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CodeBase">
+      <UniqueIdentifier>{3d340bf4-b592-45eb-8510-a9917760f513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProcessTimer">
+      <UniqueIdentifier>{6a1ea1be-b442-4972-a9fb-f2cd08264179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Logic">
+      <UniqueIdentifier>{6a789d4e-c8d8-4e4a-98d1-9e7e6543bb0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Logic\Generators">
+      <UniqueIdentifier>{6853d0d8-b542-4e09-ab02-96f2b4af6109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Graphics">
+      <UniqueIdentifier>{8cf92535-771b-4976-bc99-1d7428b7d4ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Graphics\Generators">
+      <UniqueIdentifier>{65485aa4-1776-4310-bd45-d8f27eb2aa30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Model">
+      <UniqueIdentifier>{87b7b6f0-daef-4d03-97dd-ceb3e78cc81a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Model\TriangulationMethod">
+      <UniqueIdentifier>{01f8900a-c450-401e-a087-f678d4604273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Model\TriangulationMethod\Containers">
+      <UniqueIdentifier>{6fdb2162-0f7b-40ff-86fb-6c6808b9644d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Logic\TriangulationMethod">
+      <UniqueIdentifier>{575ee942-43a5-48e4-96ba-17442ecf2e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Logic\CellsMethod">
+      <UniqueIdentifier>{6183f379-db98-4007-a68c-d8b76c8138a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Model\NetMethod">
+      <UniqueIdentifier>{55912994-6554-4404-b690-f4977f33f5f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeBase\Model\NetMethod\Containers">
+      <UniqueIdentifier>{fcd65df2-6398-40c1-81a6-3153bc9a37f2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EventDrivenModellingForms.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangNode.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangNodesGenerator.cpp">
+      <Filter>CodeBase\Logic\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangEdge.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangNodesContainer.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="NetEventController.cpp">
+      <Filter>CodeBase\Logic\CellsMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="NetEventHandler.cpp">
+      <Filter>CodeBase\Logic\CellsMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>CodeBase\Model\NetMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorsContainer.cpp">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="BordersContainer.cpp">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="CellsContainer.cpp">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangEventController.cpp">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangEventHandler.cpp">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulator.cpp">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgesContainer.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="Events.cpp">
+      <Filter>CodeBase\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.cpp">
+      <Filter>CodeBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>CodeBase\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Point2F.cpp">
+      <Filter>CodeBase\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="PriorityQueue.cpp">
+      <Filter>CodeBase\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessTimer.cpp">
+      <Filter>ProcessTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties.cpp">
+      <Filter>CodeBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulation.cpp">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorsGenerator.cpp">
+      <Filter>CodeBase\Logic\Generators</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Form1.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\OpenGLPanelExtention.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\GLDrawer.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Global.h">
+      <Filter>CodeBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ProcessTimer.h">
+      <Filter>ProcessTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Properties.h">
+      <Filter>CodeBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsGenerator.h">
+      <Filter>CodeBase\Logic\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\FloatGenerator.h">
+      <Filter>CodeBase\Graphics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Actor.h">
+      <Filter>CodeBase\Model\NetMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsContainer.h">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Border.h">
+      <Filter>CodeBase\Model\NetMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Cell.h">
+      <Filter>CodeBase\Model\NetMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\BordersContainer.h">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Node.h">
+      <Filter>CodeBase\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Events.h">
+      <Filter>CodeBase\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PriorityQueue.h">
+      <Filter>CodeBase\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Singleton.h">
+      <Filter>CodeBase\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Point2F.h">
+      <Filter>CodeBase\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PointsGenerator.h">
+      <Filter>CodeBase\Graphics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EDM_Math.h">
+      <Filter>CodeBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\RefSingleton.h">
+      <Filter>CodeBase\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangle.h">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangulation.h">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EdgesContainer.h">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangulator.h">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangNode.h">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="EdgeIndexer.h">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangNodesGenerator.h">
+      <Filter>CodeBase\Logic\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangEdge.h">
+      <Filter>CodeBase\Model\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangNodesContainer.h">
+      <Filter>CodeBase\Model\TriangulationMethod\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="EDM_Rect.h">
+      <Filter>CodeBase\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="NetEventController.h">
+      <Filter>CodeBase\Logic\CellsMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangEventController.h">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="NetEventHandler.h">
+      <Filter>CodeBase\Logic\CellsMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\TriangEventHandler.h">
+      <Filter>CodeBase\Logic\TriangulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\CellsContainer.h">
+      <Filter>CodeBase\Model\NetMethod\Containers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Form1.resX">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ClassDiagram1.cd" />
+  </ItemGroup>
+</Project>
