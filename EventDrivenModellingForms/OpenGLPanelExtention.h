@@ -24,7 +24,7 @@ using namespace System::Windows::Forms;
 using namespace EDM;
 using namespace EDM::EDM_Graphics;
 
-#define PI 3.1415926535898f
+//static const float PI = 3.1415926535898f;
 
 namespace OpenGLPanelExtention
 {
@@ -35,13 +35,8 @@ namespace OpenGLPanelExtention
 		HDC m_hDC;
 		HGLRC m_hglrc;
 
-		/*GLfloat		xSizeMeters;
-		GLfloat		ySizeMeters;*/
-
 		GLdouble		xOrtCount;
 		GLdouble		yOrtCount;
-
-		/*GLint		pixelsPerMeter;*/
 
 		#pragma region GL System members
 		GLint MySetPixelFormat(HDC hdc)
@@ -96,7 +91,6 @@ namespace OpenGLPanelExtention
 				return 0;
 			}
 
-
 			return 1;
 		}
 
@@ -144,9 +138,6 @@ namespace OpenGLPanelExtention
 
 		OpenGLPanel(GLsizei width, GLsizei height)
 		{
-			/*xSizeMeters = actualXCellsCount;
-			ySizeMeters = actualYCellsCount;*/
-
 			m_hDC = GetDC((HWND)this->Handle.ToPointer());
 
 			if(m_hDC)
@@ -159,12 +150,12 @@ namespace OpenGLPanelExtention
 
 		GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize and initialize the gl window
 		{
-			if (height == 0)										// Prevent A Divide By Zero By
+			if (height == 0)									// Prevent A Divide By Zero By
 				height = 1;										// Making Height Equal One
 			if (width == 0)										// Prevent A Divide By Zero By
 				width = 1;										// Making Width Equal One
 
-			glViewport(0, 0, width, height);						// Reset The Current Viewport
+			glViewport(0, 0, width, height);					// Reset The Current Viewport
 
 			glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
 			glLoadIdentity();									// Reset The Projection Matrix
@@ -188,28 +179,14 @@ namespace OpenGLPanelExtention
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear screen and depth buffer
 
-			if (EDM_Prop->IsNetMethod)
+			if (EDM_Prop->ShowCellsGrid)
 			{
-				if (EDM_Prop->ShowCellsGrid)
-				{
-					GLDrawer::DrawCellsGrid(0, 0, EDM_Prop->ActualXCellsCount, EDM_Prop->ActualYCellsCount, 1.0f, 1.0f);
-				}			
-				GLDrawer::DrawBoundEDM_Rect(EDM_Rect(1.0f,1.0f, (float)EDM_Prop->ActualXCellsCount - 1, (float)EDM_Prop->ActualYCellsCount - 1), 2.0f);
-				ActorsContainer *acInst = ActorsContainer::Instance();
-				GLDrawer::DrawActors(acInst->actors, timeElapsed, pixelsPerMeter, EDM_Prop->ActorsRadius * 2);
-				acInst->FreeInst();
-			}
-			if (EDM_Prop->IsTriangMethod)
-			{
-				TriangNodesContainer *nodsInst = TriangNodesContainer::Instance();
-				EdgesContainer *edgsInst = EdgesContainer::Instance();
-				GLDrawer::DrawTriangEdges(edgsInst->m_edges, nodsInst->m_nodes, 1.0f);
-				GLDrawer::DrawTriangNodes(nodsInst->m_nodes, timeElapsed, pixelsPerMeter, EDM_Prop->ActorsRadius * 2);
-				nodsInst->FreeInst();
-				edgsInst->FreeInst();
-			}
-
-			//Primitives::DrawCoordGrid(0, 0, xOrtCount, yOrtCount, Width, Height);
+				GLDrawer::DrawCellsGrid(0, 0, EDM_Prop->ActualXCellsCount, EDM_Prop->ActualYCellsCount, 1.0f, 1.0f);
+			}			
+			GLDrawer::DrawBoundEDM_Rect(EDM_Rect(1.0f,1.0f, (float)EDM_Prop->ActualXCellsCount - 1, (float)EDM_Prop->ActualYCellsCount - 1), 2.0f);
+			ActorsContainer *acInst = ActorsContainer::Instance();
+			GLDrawer::DrawActors(acInst->actors, timeElapsed, pixelsPerMeter, EDM_Prop->ActorsRadius * 2);
+			acInst->FreeInst();
 
 			glFlush();
 			SwapOpenGLBuffers();			
