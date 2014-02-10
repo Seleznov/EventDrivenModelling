@@ -2,7 +2,7 @@
 #include <list>
 #include <math.h>
 
-#include "TriangNode.h"
+//#include "TriangNode.h"
 #include "Actor.h"
 #include "Events.h"
 #include "NetEventController.h"

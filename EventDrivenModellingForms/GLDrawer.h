@@ -17,18 +17,11 @@
 #include "Events.h"
 #include "ActorsContainer.h"
 
-#include "TriangNode.h"
-#include "TriangNodesContainer.h"
-#include "TriangEdge.h"
-#include "EdgesContainer.h"
-
 #include "Properties.h"
 
 using namespace std;
 using namespace EDM;
 using namespace EDM::EDM_Graphics;
-
-/*static const float PI = 3.1415926535898f;*/
 
 namespace EDM { namespace EDM_Graphics
 {
@@ -48,39 +41,6 @@ namespace EDM { namespace EDM_Graphics
 			glBegin(GL_POINTS);
 				glVertex2f(x, y);
 			glEnd();
-		}
-
-	
-		static GLvoid DrawTriangEdges(EdgesT &edges, TriangNodesT &nodes, GLfloat lineWidth)
-		{
-			glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
-			for (size_t edgeIter = 0; edgeIter < edges.size(); edgeIter++)
-			{
-				Point2F startPoint = nodes[edges[edgeIter].m_begin].coord;
-				Point2F endPoint = nodes[edges[edgeIter].m_end].coord;
-				DrawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y, lineWidth);
-			}
-		}
-
-		static GLvoid DrawTriangNodes(TriangNodesT &nodes, double sysTime, GLint pixelsPerMeter, GLfloat size = -1.0f)
-		{
-			glColor3f(1.0f, 0.0f, 0.0f);
-			GLfloat actSize;
-			GLint actorCntr = 0;
-			TriangNodesT::iterator pIter = nodes.begin();			
-			glColor3f(1.0f, 0.0f, 0.0f);
-			while (actorCntr < nodes.size())
-			{
-				if (size < 0)
-					actSize = GetGLSizeFromWorld(pIter->radius * 2, pixelsPerMeter);
-				else
-					actSize = GetGLSizeFromWorld(size, pixelsPerMeter);
-				//////////////////////////////////////////////////////////////////////////
-				pIter->coord = pIter->localCoord + pIter->vel * (sysTime - pIter->evnt->args->localTime);
-				DrawPoint(pIter->coord.x, pIter->coord.y, actSize);
-				pIter++; 
-				actorCntr++;
-			}						
 		}
 
 		static GLvoid DrawActors(ActorsT &actors, double sysTime, GLint pixelsPerMeter, GLfloat size = -1.0f)
@@ -188,20 +148,5 @@ namespace EDM { namespace EDM_Graphics
 				glVertex2f(rect.leftBottom.x, rect.rightTop.y);
 			glEnd();
 		}
-
-// 		static GLvoid DrawCircle(GLint vertexCount, GLfloat radius, GLfloat xCenter, GLfloat yCenter)
-// 		{			
-// 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-// 			glBegin( GL_TRIANGLE_FAN );
-// 				glVertex2f(xCenter + 0.0f, yCenter + 0.0f ); // vertex in the circle center
-// 				for(GLint i = 0; i <= vertexCount; i++ ) {
-// 					GLfloat a = (float)i / vertexCount * PI * 2.0f;
-// 					glVertex2f(xCenter + cos( a ) * radius, yCenter + sin( a ) * radius );
-// 				}
-// 			glEnd();
-// 		}
-
-	private:
-
 	};		
 }}

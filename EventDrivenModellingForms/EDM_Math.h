@@ -2,7 +2,6 @@
 #ifndef EDM_MATH_H
 #define EDM_MATH_H
 
-#include "TriangNode.h"
 #include "Events.h"
 #include "Properties.h"
 
@@ -70,8 +69,6 @@ namespace EDM { namespace Logic {
 
 		// Is point pk belongs to segment pipj, when pk is equal to pi or pj.
 		inline static bool OnSegmentEq(Point2F &pi, Point2F &pj, Point2F &pk);
-		inline static double TriangSquare(TriangNode &p1, TriangNode &p2, TriangNode &p3);
-		inline static double TriangSquareDerivative(TriangNode &p1, TriangNode &p2, TriangNode &p3);
 	};
 
 #pragma region Implements
@@ -385,48 +382,6 @@ namespace EDM { namespace Logic {
 			return true;
 		}
 		return false;
-	}
-
-	double EDM_Math::TriangSquare(TriangNode &p1, TriangNode &p2, TriangNode &p3)
-	{
-		double ap = (p2.vel.x - p1.vel.x) * (p3.vel.y - p1.vel.y);
-		double bp = ((p2.coord.x - p1.coord.x) * (p3.vel.y - p1.vel.y)) + ((p3.coord.y - p1.coord.y) * (p2.vel.x - p1.vel.x));
-		double cp = (p2.coord.x - p1.coord.x) * (p3.coord.y - p1.coord.y);
-
-		double aq = (p3.vel.x - p1.vel.x) * (p2.vel.y - p1.vel.y);
-		double bq = ((p3.coord.x - p1.coord.x) * (p2.vel.y - p1.vel.y)) + ((p2.coord.y - p1.coord.y) * (p3.vel.x - p1.vel.x));
-		double cq = (p3.coord.x - p1.coord.x) * (p2.coord.y - p1.coord.y);
-
-		double A = ap - aq;
-		double B = bp - bq;
-		double C = cp - cq;
-
-		double discrim = EDM_Math::Discrim(B, A, C);
-
-		if ((discrim > 0) && (B > sqrt(discrim)))
-		{
-			double t = EDM_Math::dt(B, discrim, A);
-			if (B < -t * A)
-			{
-				double time = p1.evnt->args->localTime + t;
-				return time;
-			}
-		}
-		return DBL_MAX;
-	}
-
-	double EDM_Math::TriangSquareDerivative(TriangNode &p1, TriangNode &p2, TriangNode &p3)
-	{
-		double ap = (p2.vel.x - p1.vel.x) * (p3.vel.y - p1.vel.y);
-		double bp = ((p2.coord.x - p1.coord.x) * (p3.vel.y - p1.vel.y)) + ((p3.coord.y - p1.coord.y) * (p2.vel.x - p1.vel.x));
-		double cp = (p2.coord.x - p1.coord.x) * (p3.coord.y - p1.coord.y);
-
-		double aq = (p3.vel.x - p1.vel.x) * (p2.vel.y - p1.vel.y);
-		double bq = ((p3.coord.x - p1.coord.x) * (p2.vel.y - p1.vel.y)) + ((p2.coord.y - p1.coord.y) * (p3.vel.x - p1.vel.x));
-		double cq = (p3.coord.x - p1.coord.x) * (p2.coord.y - p1.coord.y);
-
-		double A = ap - aq;
-		double B = bp - bq;
 	}
 
  	Point2F EDM_Math::IntersectPointBwPerpendicFromPointAndLine(Point2F& a, Point2F& b, Point2F& point)
