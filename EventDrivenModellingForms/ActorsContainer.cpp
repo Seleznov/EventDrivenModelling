@@ -1,11 +1,9 @@
-//#include "Global.h"
 #include "Actor.h"
 #include "ActorsGenerator.h"
 #include "EDM_Rect.h"
 #include "ActorsContainer.h"
 #include "Properties.h"
 
-//using namespace EDM;
 using namespace EDM::Logic::Generators;
 
 ActorsContainer::ActorsContainer()

@@ -28,7 +28,7 @@ using namespace std;
 using namespace EDM;
 using namespace EDM::EDM_Graphics;
 
-#define PI 3.1415926535898f
+/*static const float PI = 3.1415926535898f;*/
 
 namespace EDM { namespace EDM_Graphics
 {
@@ -189,17 +189,17 @@ namespace EDM { namespace EDM_Graphics
 			glEnd();
 		}
 
-		static GLvoid DrawCircle(GLint vertexCount, GLfloat radius, GLfloat xCenter, GLfloat yCenter)
-		{			
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-			glBegin( GL_TRIANGLE_FAN );
-				glVertex2f(xCenter + 0.0f, yCenter + 0.0f ); // vertex in the circle center
-				for(GLint i = 0; i <= vertexCount; i++ ) {
-					GLfloat a = (float)i / vertexCount * PI * 2.0f;
-					glVertex2f(xCenter + cos( a ) * radius, yCenter + sin( a ) * radius );
-				}
-			glEnd();
-		}
+// 		static GLvoid DrawCircle(GLint vertexCount, GLfloat radius, GLfloat xCenter, GLfloat yCenter)
+// 		{			
+// 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+// 			glBegin( GL_TRIANGLE_FAN );
+// 				glVertex2f(xCenter + 0.0f, yCenter + 0.0f ); // vertex in the circle center
+// 				for(GLint i = 0; i <= vertexCount; i++ ) {
+// 					GLfloat a = (float)i / vertexCount * PI * 2.0f;
+// 					glVertex2f(xCenter + cos( a ) * radius, yCenter + sin( a ) * radius );
+// 				}
+// 			glEnd();
+// 		}
 
 	private:
 

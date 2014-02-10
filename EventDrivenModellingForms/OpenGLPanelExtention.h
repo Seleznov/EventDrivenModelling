@@ -24,8 +24,6 @@ using namespace System::Windows::Forms;
 using namespace EDM;
 using namespace EDM::EDM_Graphics;
 
-//static const float PI = 3.1415926535898f;
-
 namespace OpenGLPanelExtention
 {
 	ref class OpenGLPanel: public System::Windows::Forms::Panel
