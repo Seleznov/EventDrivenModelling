@@ -12,10 +12,6 @@
 #include "Properties.h"
 #include "EDM_Math.h"
 
-#include "TriangNode.h"
-#include "Triangulator.h"
-#include "EdgesContainer.h"
-
 #include <time.h>
 
 using namespace System;
@@ -75,8 +71,6 @@ namespace EDM {
 			CellContainer *cellContInst;
 			ActorsContainer *acInst;
 			PriorityQueue *queueInst;
-			TriangNodesContainer *trNodesInst;
-			EdgesContainer *edgsInst;
 
 	#pragma endregion Fields
 
@@ -103,9 +97,9 @@ namespace EDM {
 	private: System::Windows::Forms::ToolStripStatusLabel^  tsslCrntCoord;
 	private: System::Windows::Forms::GroupBox^  gbViewSettings;
 	private: System::Windows::Forms::CheckBox^  cbShowCellsGrid;
-	private: System::Windows::Forms::GroupBox^  groupBox1;
-	private: System::Windows::Forms::RadioButton^  rbTriangulationMethod;
-	private: System::Windows::Forms::RadioButton^  rbNetPointMethod;
+
+
+
 	private: System::ComponentModel::IContainer^  components;
 #pragma endregion UI Elements
 
@@ -129,9 +123,6 @@ namespace EDM {
 			this->lTimeElapsed = (gcnew System::Windows::Forms::Label());
 			this->lTimeElapsedTxt = (gcnew System::Windows::Forms::Label());
 			this->gbControl = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->rbTriangulationMethod = (gcnew System::Windows::Forms::RadioButton());
-			this->rbNetPointMethod = (gcnew System::Windows::Forms::RadioButton());
 			this->gbViewSettings = (gcnew System::Windows::Forms::GroupBox());
 			this->cbShowCellsGrid = (gcnew System::Windows::Forms::CheckBox());
 			this->gbPlayer = (gcnew System::Windows::Forms::GroupBox());
@@ -144,7 +135,6 @@ namespace EDM {
 			this->gbProcessInfo->SuspendLayout();
 			this->gbSettings->SuspendLayout();
 			this->gbControl->SuspendLayout();
-			this->groupBox1->SuspendLayout();
 			this->gbViewSettings->SuspendLayout();
 			this->gbPlayer->SuspendLayout();
 			this->statusStrip1->SuspendLayout();
@@ -249,7 +239,6 @@ namespace EDM {
 			// 
 			this->gbControl->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->gbControl->Controls->Add(this->groupBox1);
 			this->gbControl->Controls->Add(this->gbViewSettings);
 			this->gbControl->Controls->Add(this->gbPlayer);
 			this->gbControl->Location = System::Drawing::Point(712, 12);
@@ -258,42 +247,6 @@ namespace EDM {
 			this->gbControl->TabIndex = 5;
 			this->gbControl->TabStop = false;
 			this->gbControl->Text = L"Control";
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->rbTriangulationMethod);
-			this->groupBox1->Controls->Add(this->rbNetPointMethod);
-			this->groupBox1->Enabled = false;
-			this->groupBox1->Location = System::Drawing::Point(6, 193);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(188, 70);
-			this->groupBox1->TabIndex = 6;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Method type";
-			// 
-			// rbTriangulationMethod
-			// 
-			this->rbTriangulationMethod->AutoSize = true;
-			this->rbTriangulationMethod->Location = System::Drawing::Point(6, 43);
-			this->rbTriangulationMethod->Name = L"rbTriangulationMethod";
-			this->rbTriangulationMethod->Size = System::Drawing::Size(124, 17);
-			this->rbTriangulationMethod->TabIndex = 1;
-			this->rbTriangulationMethod->Text = L"Triangulation method";
-			this->rbTriangulationMethod->UseVisualStyleBackColor = true;
-			this->rbTriangulationMethod->CheckedChanged += gcnew System::EventHandler(this, &Form1::rbTriangulationMethod_CheckedChanged);
-			// 
-			// rbNetPointMethod
-			// 
-			this->rbNetPointMethod->AutoSize = true;
-			this->rbNetPointMethod->Checked = true;
-			this->rbNetPointMethod->Location = System::Drawing::Point(7, 20);
-			this->rbNetPointMethod->Name = L"rbNetPointMethod";
-			this->rbNetPointMethod->Size = System::Drawing::Size(106, 17);
-			this->rbNetPointMethod->TabIndex = 0;
-			this->rbNetPointMethod->TabStop = true;
-			this->rbNetPointMethod->Text = L"Net-point method";
-			this->rbNetPointMethod->UseVisualStyleBackColor = true;
-			this->rbNetPointMethod->CheckedChanged += gcnew System::EventHandler(this, &Form1::rbNetPointMethod_CheckedChanged);
 			// 
 			// gbViewSettings
 			// 
@@ -407,8 +360,6 @@ namespace EDM {
 			this->gbProcessInfo->PerformLayout();
 			this->gbSettings->ResumeLayout(false);
 			this->gbControl->ResumeLayout(false);
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
 			this->gbViewSettings->ResumeLayout(false);
 			this->gbViewSettings->PerformLayout();
 			this->gbPlayer->ResumeLayout(false);
@@ -446,25 +397,8 @@ namespace EDM {
 
 		void InitProcessVars()
 		{
-			//////////////////////////////////////////////////////////////////////////
-			//// net method
-			EDM_Prop->IsNetMethod = true;
-			EDM_Prop->IsTriangMethod = false;
 			cellContInst = CellContainer::Instance();
 			acInst = ActorsContainer::Instance();
-			//// net method
-			//////////////////////////////////////////////////////////////////////////
-				 
-			//////////////////////////////////////////////////////////////////////////
-			//// triang method
-			/*EDM_Prop->IsNetMethod = false;
-			EDM_Prop->IsTriangMethod = true;
-			trNodesInst = TriangNodesContainer::Instance();
-			edgsInst = EdgesContainer::Instance();
-			Triangulator::Triangulate(trNodesInst->m_nodes.size());*/
-			//// triang method
-			//////////////////////////////////////////////////////////////////////////
-
 			queueInst = PriorityQueue::Instance();
 				 
 			EDM_Prop->LocalTime = 0.0;
@@ -478,8 +412,6 @@ namespace EDM {
 			queueInst->FreeInst();
 			acInst->FreeInst();
 			cellContInst->FreeInst();
-			trNodesInst->FreeInst();
-			edgsInst->FreeInst();
 		}
 
 		void DrawSceneAndUpdateUI()
@@ -522,14 +454,7 @@ private: System::Void m_oglPanel_MouseMove(System::Object^  sender, System::Wind
 
 private: System::Void timerDrowing_Tick(System::Object^  sender, System::EventArgs^  e) 
 	 	 {
-			 if (EDM_Prop->IsNetMethod)
-			 {
-				 queueInst->PlayNetEventsForTime();
-			 }
-			 else
-			 {
-				 queueInst->PlayTriangEventsForTime();
-			 }
+			 queueInst->PlayNetEventsForTime();
 
 			 DrawSceneAndUpdateUI();
 	 	 }
@@ -576,8 +501,6 @@ private: System::Void bStart_Click(System::Object^  sender, System::EventArgs^  
 			 StartProcess();
 			 bStart->Enabled = false;
 			 pgSettings->Enabled = false;
-			 rbNetPointMethod->Enabled = false;
-			 rbTriangulationMethod->Enabled = false;
 		 }
 
 private: System::Void bStop_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -586,8 +509,6 @@ private: System::Void bStop_Click(System::Object^  sender, System::EventArgs^  e
 			 timerQueueEvent->Stop();
 			 bStart->Enabled = true;
 			 pgSettings->Enabled = true;
-			 rbNetPointMethod->Enabled = true;
-			 rbTriangulationMethod->Enabled = true;
 		 }
 
 private: System::Void bReset_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -608,36 +529,6 @@ private: System::Void cbShowCellsGrid_CheckedChanged(System::Object^  sender, Sy
 		 {
 			 EDM_Prop->ShowCellsGrid = !EDM_Prop->ShowCellsGrid;
 			 DrawSceneAndUpdateUI();
-		 }
-
-private: System::Void rbNetPointMethod_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
-		 {
-			 if (rbNetPointMethod->Checked)
-			 {
-				 EDM_Prop->IsNetMethod = true;
-				 ResetProcess();
-				 m_oglPanel->ReSizeGLScene(m_oglPanel->Width, m_oglPanel->Height);
-				 DrawSceneAndUpdateUI();
-			 }
-			 else
-			 {
-				 EDM_Prop->IsNetMethod = false;
-			 }
-		 }
-
-private: System::Void rbTriangulationMethod_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
-		 {
-			 if (rbTriangulationMethod->Checked)
-			 {
-				 EDM_Prop->IsTriangMethod = true;
-				 ResetProcess();
-				 m_oglPanel->ReSizeGLScene(m_oglPanel->Width, m_oglPanel->Height);
-				 DrawSceneAndUpdateUI();
-			 }
-			 else
-			 {
-				 EDM_Prop->IsTriangMethod = false;
-			 }
 		 }
 
 #pragma endregion
