@@ -41,7 +41,6 @@ namespace EDM { namespace Logic {
 	private:
 		int CalcActualActorsCount(int actorsCount) const;
 		void AddMissingActors(int actualActorsCount) const;
-		void AddMissingNodes(int actualActorsCount) const;
 		inline int CalcHeapTreeSize(int startInd, int actualActorsCount) const;
 		inline int CalcStartInd(int actualActorsCount) const;
 		void InitHeapTree(int actualHeapSize);

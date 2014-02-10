@@ -6,9 +6,7 @@
 #include "Actor.h"
 #include "Events.h"
 #include "NetEventController.h"
-#include "TriangEventController.h"
 #include "ActorsContainer.h"
-#include "TriangNodesContainer.h"
 #include "PriorityQueue.h"
 #include "Properties.h"
 
@@ -59,22 +57,6 @@ void PriorityQueue::AddMissingActors(int actualActorsCount) const
 	}
 
 	acInst->FreeInst();
-}
-
-void PriorityQueue::AddMissingNodes(int actualActorsCount) const
-{
-	TriangNodesContainer *nodsInst = TriangNodesContainer::Instance();
-
-	unsigned int fakeActCount = actualActorsCount - EDM_Prop->ActorsCount;
-	for (unsigned int i = 0; i < fakeActCount; i++)
-	{
-		EventArgs *fakeArgs = new EventArgs(DBL_MAX, DBL_MAX, -1);
-		EventT *fakeEvnt = new EventT(-1, *fakeArgs, nullptr);
-		TriangNode fakeNode = TriangNode(CoordT(FLT_MAX, FLT_MAX), Vector2fT(), 0, fakeEvnt);
-		nodsInst->m_nodes.push_back(fakeNode);
-	}
-
-	nodsInst->FreeInst();
 }
 
 int PriorityQueue::CalcStartInd(int actualActorsCount) const

@@ -92,68 +92,45 @@
     <ClCompile Include="ActorsGenerator.cpp" />
     <ClCompile Include="BordersContainer.cpp" />
     <ClCompile Include="CellsContainer.cpp" />
-    <ClCompile Include="EdgesContainer.cpp" />
     <ClCompile Include="Events.cpp" />
-    <ClCompile Include="Global.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Point2F.cpp" />
     <ClCompile Include="PriorityQueue.cpp" />
     <ClCompile Include="ProcessTimer.cpp" />
     <ClCompile Include="Properties.cpp" />
-    <ClCompile Include="TriangEdge.cpp" />
     <ClCompile Include="NetEventHandler.cpp" />
     <ClCompile Include="NetEventController.cpp" />
-    <ClCompile Include="TriangEventController.cpp" />
-    <ClCompile Include="TriangEventHandler.cpp" />
-    <ClCompile Include="Triangle.cpp" />
-    <ClCompile Include="TriangNodesGenerator.cpp" />
-    <ClCompile Include="TriangNodesContainer.cpp" />
-    <ClCompile Include="TriangNode.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="EventDrivenModellingForms.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Triangulation.cpp" />
-    <ClCompile Include="Triangulator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Actor.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsContainer.h" />
+    <ClInclude Include="..\..\..\Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsContainer.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ActorsGenerator.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Border.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\BordersContainer.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Cell.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\CellsContainer.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\TriangEventHandler.h" />
-    <ClInclude Include="TriangEventController.h" />
-    <ClInclude Include="EdgeIndexer.h" />
-    <ClInclude Include="Triangulator.h" />
-    <ClInclude Include="TriangEdge.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EdgesContainer.h" />
+    <ClInclude Include="Properties.h" />
     <ClInclude Include="NetEventHandler.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\EDM_Math.h" />
     <ClInclude Include="NetEventController.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Events.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\FloatGenerator.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\GLDrawer.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Global.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Node.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\OpenGLPanelExtention.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Point2F.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PointsGenerator.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\PriorityQueue.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ProcessTimer.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Properties.h" />
     <ClInclude Include="EDM_Rect.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\RefSingleton.h" />
     <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Singleton.h" />
-    <ClInclude Include="TriangNodesContainer.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangle.h" />
-    <ClInclude Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\Triangulation.h" />
-    <ClInclude Include="TriangNodesGenerator.h" />
-    <ClInclude Include="TriangNode.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -168,6 +145,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\%40Project\EventDrivenModellingForms\EventDrivenModellingForms\ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
