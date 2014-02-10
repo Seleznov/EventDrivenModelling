@@ -2,8 +2,6 @@
 #include "Cell.h"
 #include "CellsContainer.h"
 
-///werfhekjsdhgfklusdhlkgljkfdlgj
-
 using namespace EDM::Model;
 
 Actor::Actor() : Node()
