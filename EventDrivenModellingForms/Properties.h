@@ -21,8 +21,6 @@ namespace EDM
 		int m_yCellsCount;
 		int m_actualXCellsCount;
 		int m_actualYCellsCount;
-	/*	double m_xCellSize;
-		double m_yCellSize;*/
 
 		int m_actorsInCell;
 		int m_bordersInCell;
@@ -32,12 +30,8 @@ namespace EDM
 		int m_eventsCounter;
 		int m_drawingPeriodInEvents;
 		double m_drawingPeriodInSeconds;
-		//int m_eventsCountSinceLastDrawing;
 
 		bool m_showCellsGrid;
-
-		bool m_isNetMethod;
-		bool m_isTriangMethod;
 
 		double m_eps;
 
@@ -91,14 +85,6 @@ namespace EDM
 		[BrowsableAttribute(false)]
 		property int ActualYCellsCount { int get(); }
 
-		/*[CategoryAttribute("Cells params")]
-		[ReadOnlyAttribute(true)]
-		property double xCellSize { double get();}
-
-		[CategoryAttribute("Cells params")]
-		[ReadOnlyAttribute(true)]
-		property double yCellSize { double get(); }*/
-
 #pragma  endregion Cells params
 
 #pragma region Time_n_events params
@@ -112,14 +98,11 @@ namespace EDM
 		[BrowsableAttribute(false)]
 		property int EventsCounter { int get(); void set(int value); }
 
-		[CategoryAttribute("Time & events params")]
+		[CategoryAttribute("Time and events params")]
 		property int DrawingPeriodInEvents{ int get(); void set(int value); }
 
-		[CategoryAttribute("Time & events params")]
+		[CategoryAttribute("Time and events params")]
 		property double DrawingPeriodInSeconds{ double get(); void set(double value); }
-
-		/*[BrowsableAttribute(false)]
-		property int EventsCountSinceLastDrawing{ int get(); void set(int value); }*/
 
 #pragma endregion Time_n_events params
 
@@ -130,16 +113,10 @@ namespace EDM
 
 #pragma endregion View params
 
-		//////////////////////////////////////////////////////////////////////////
 		[BrowsableAttribute(true)]
-		[CategoryAttribute("Triang method")]
+		[CategoryAttribute("Others")]
 		property double Eps { double get(); void set(double value); }
 
-		[BrowsableAttribute(false)]
-		property bool IsNetMethod { bool get(); void set(bool value); }
-
-		[BrowsableAttribute(false)]
-		property bool IsTriangMethod { bool get(); void set(bool value); }
 	};
 
 	#define EDM_Prop Properties::Instance

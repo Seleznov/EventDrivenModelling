@@ -28,8 +28,8 @@ Properties::Properties(void)
 
 	m_showCellsGrid = true;
 
-	m_isNetMethod = false;
-	m_isTriangMethod = true;
+// 	m_isNetMethod = false;
+// 	m_isTriangMethod = true;
 
 	m_eps = 1e-5;
 }
@@ -121,8 +121,8 @@ void Properties::ShowCellsGrid::set(bool value) { m_showCellsGrid = value; }
 double Properties::Eps::get() { return m_eps; }
 void Properties::Eps::set(double value) { m_eps = value; }
 
-bool Properties::IsNetMethod::get() { return m_isNetMethod; }
-void Properties::IsNetMethod::set(bool value) { m_isNetMethod = value; }
-
-bool Properties::IsTriangMethod::get() { return m_isTriangMethod; }
-void Properties::IsTriangMethod::set(bool value) { m_isTriangMethod = value; }
+//bool Properties::IsNetMethod::get() { return m_isNetMethod; }
+//void Properties::IsNetMethod::set(bool value) { m_isNetMethod = value; }
+//
+//bool Properties::IsTriangMethod::get() { return m_isTriangMethod; }
+//void Properties::IsTriangMethod::set(bool value) { m_isTriangMethod = value; }
