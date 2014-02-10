@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "Singleton.h"
-//#include "Global.h"
 
 namespace EDM { namespace Model 
 {
@@ -54,9 +53,7 @@ namespace EDM { namespace Logic {
 	public:
 		void ChangeHeapTree(int changedActorInd);
 		inline int GetFirst() const;
-		//void PlayEventsForEventsCount();
 		void PlayNetEventsForTime();
-		void PlayTriangEventsForTime();
 		
 #pragma endregion Methods
 	};

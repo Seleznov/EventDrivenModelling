@@ -20,18 +20,10 @@ using namespace EDM::Model;
 PriorityQueue::PriorityQueue()
 {
 	int actualActorsCount = PriorityQueue::CalcActualActorsCount(EDM_Prop->ActorsCount);	
+	AddMissingActors(actualActorsCount);
 
-	if (EDM_Prop->IsNetMethod)
-	{
-		AddMissingActors(actualActorsCount);
-		NetEventController::FindStartTimesForActors();		
-	}
-	if (EDM_Prop->IsTriangMethod)
-	{
-		AddMissingNodes(actualActorsCount);
-		TriangEventController::FindStartTimesForNodes();		
-	}
-	
+	NetEventController::FindStartTimesForActors();		
+
 	m_startInd = CalcStartInd(actualActorsCount);
 	int heapTreeSize = CalcHeapTreeSize(m_startInd, actualActorsCount);
 	InitHeapTree(heapTreeSize);	
@@ -125,45 +117,22 @@ void PriorityQueue::FillBottomHeapTreeTier()
 
 void PriorityQueue::ChangeHeap(int lChInd, int rChInd)
 {
-	if (EDM_Prop->IsNetMethod)
+	ActorsContainer *acInst = ActorsContainer::Instance();
+
+	int parentInd = lChInd / 2;
+	int actLeftInd = (*m_heapTree)[lChInd];
+	int actRightInd = (*m_heapTree)[rChInd];
+	if (acInst->actors[actLeftInd].evnt->args->time <=
+		acInst->actors[actRightInd].evnt->args->time)
 	{
-		ActorsContainer *acInst = ActorsContainer::Instance();
-
-		int parentInd = lChInd / 2;
-		int actLeftInd = (*m_heapTree)[lChInd];
-		int actRightInd = (*m_heapTree)[rChInd];
-		if (acInst->actors[actLeftInd].evnt->args->time <=
-			acInst->actors[actRightInd].evnt->args->time)
-		{
-			(*m_heapTree)[parentInd] = (*m_heapTree)[lChInd];
-		}
-		else
-		{
-			(*m_heapTree)[parentInd] = (*m_heapTree)[rChInd];
-		}
-
-		acInst->FreeInst();
+		(*m_heapTree)[parentInd] = (*m_heapTree)[lChInd];
 	}
-	if (EDM_Prop->IsTriangMethod)
+	else
 	{
-		TriangNodesContainer *nodsInst = TriangNodesContainer::Instance();
-
-		int parentInd = lChInd / 2;
-		int nodeLeftInd = (*m_heapTree)[lChInd];
-		int nodeRightInd = (*m_heapTree)[rChInd];
-		if (nodsInst->m_nodes[nodeLeftInd].evnt->args->time <=
-			nodsInst->m_nodes[nodeRightInd].evnt->args->time)
-		{
-			(*m_heapTree)[parentInd] = (*m_heapTree)[lChInd];
-		}
-		else
-		{
-			(*m_heapTree)[parentInd] = (*m_heapTree)[rChInd];
-		}
-
-		nodsInst->FreeInst();
+		(*m_heapTree)[parentInd] = (*m_heapTree)[rChInd];
 	}
-	
+
+	acInst->FreeInst();
 }
 
 void PriorityQueue::ChangeHeapTree(int changedActorInd)
@@ -208,39 +177,12 @@ void PriorityQueue::PlayNetEventsForTime()
 		nextEvntTime = acInst->actors[crntActInd].evnt->args->time;
 		prop->EventsCounter++;
 
-		//////////////////////////////////////////////////////////////////////////
-		//for debugging
+#ifdef DEBUG
 		if (prop->EventsCounter == 2754)
-		{				 int q = 0;			 }
+		{		 int q = 0;			 }
+#endif
+		
 	}
 
 	acInst->FreeInst();
-}
-
-void PriorityQueue::PlayTriangEventsForTime()
-{
-	Properties ^prop = EDM_Prop;
-	//////////////////////////////////////////////////////////////////////////
-	//for debug
-	if (prop->EventsCounter == 14)
-	{				 int q = 0;				 }
-
-	prop->ActualTime += prop->DrawingPeriodInSeconds;
-
-	TriangNodesContainer *nodsInst = TriangNodesContainer::Instance();	
-	int crntNodeInd, nextNodeInd;
-	double elapsedTime, crntEvntTime, nextEvntTime, crntNodeTime, nextNodeTime;
-	elapsedTime = 0.0;
-
-	crntNodeInd = GetFirst();
-	nextEvntTime = nodsInst->m_nodes[crntNodeInd].evnt->args->time;		
-	while ((prop->ActualTime >= nextEvntTime) && (elapsedTime <= prop->DrawingPeriodInSeconds))
-	{
-		nodsInst->m_nodes[crntNodeInd].evnt->OnHandler();
-		crntNodeInd = GetFirst();
-		nextEvntTime = nodsInst->m_nodes[crntNodeInd].evnt->args->time;
-		prop->EventsCounter++;
-	}
-
-	nodsInst->FreeInst();
 }
