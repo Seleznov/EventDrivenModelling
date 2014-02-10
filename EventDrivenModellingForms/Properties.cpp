@@ -13,8 +13,6 @@ Properties::Properties(void)
 	m_yCellsCount = 10;
 	m_actualXCellsCount = m_xCellsCount + 2;
 	m_actualYCellsCount = m_yCellsCount + 2;
-	//m_xCellSize = 1.0;
-	//m_yCellSize = 1.0;
 
 	m_bordersCount = 0;
 	m_bordersInCell = 16;
@@ -24,12 +22,8 @@ Properties::Properties(void)
 	m_eventsCounter = 0;
 	m_drawingPeriodInEvents = 5;
 	m_drawingPeriodInSeconds = 0.032;
-	//m_eventsCountSinceLastDrawing = 0;
 
 	m_showCellsGrid = true;
-
-// 	m_isNetMethod = false;
-// 	m_isTriangMethod = true;
 
 	m_eps = 1e-5;
 }
@@ -82,9 +76,6 @@ void Properties::yCellsCount::set(int value)
 int Properties::ActualXCellsCount::get() { return m_actualXCellsCount; }
 int Properties::ActualYCellsCount::get() { return m_actualYCellsCount; }
 
-//double Properties::xCellSize::get() { return m_xCellSize; }
-//double Properties::yCellSize::get() { return m_yCellSize; }
-
 #pragma endregion Cells params
 
 #pragma region Time'n'events params
@@ -104,9 +95,6 @@ void Properties::DrawingPeriodInEvents::set(int value) { m_drawingPeriodInEvents
 double Properties::DrawingPeriodInSeconds::get() { return m_drawingPeriodInSeconds; }
 void Properties::DrawingPeriodInSeconds::set(double value) { m_drawingPeriodInSeconds = value; }
 
-//int Properties::EventsCountSinceLastDrawing::get() { return m_eventsCountSinceLastDrawing; }
-//void Properties::EventsCountSinceLastDrawing::set(int value) { m_eventsCountSinceLastDrawing = value; }
-
 #pragma endregion Time'n'events params
 
 #pragma region View params
@@ -116,13 +104,5 @@ void Properties::ShowCellsGrid::set(bool value) { m_showCellsGrid = value; }
 
 #pragma endregion View params
 
-//////////////////////////////////////////////////////////////////////////
-
 double Properties::Eps::get() { return m_eps; }
 void Properties::Eps::set(double value) { m_eps = value; }
-
-//bool Properties::IsNetMethod::get() { return m_isNetMethod; }
-//void Properties::IsNetMethod::set(bool value) { m_isNetMethod = value; }
-//
-//bool Properties::IsTriangMethod::get() { return m_isTriangMethod; }
-//void Properties::IsTriangMethod::set(bool value) { m_isTriangMethod = value; }
